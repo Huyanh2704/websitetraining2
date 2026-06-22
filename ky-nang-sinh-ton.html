@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Học phần Kỹ năng sinh tồn - HSB</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-[#F4F9F3] text-gray-900 font-sans antialiased">
+
+    <!-- BREADCRUMB -->
+    <div class="bg-[#1E3D1A] text-white py-3 px-6 shadow-sm sticky top-0 z-50">
+        <div class="max-w-[1000px] mx-auto flex justify-between items-center text-xs md:text-sm">
+            <a href="index.html" class="hover:text-[#E2F0D9] font-bold transition flex items-center gap-2">
+                <i class="fa-solid fa-arrow-left"></i> QUAY LẠI TRANG CHỦ
+            </a>
+            <span class="text-gray-400 font-medium">Chương trình đào tạo / HSB3128</span>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="max-w-[1000px] mx-auto bg-white my-8 p-6 md:p-12 rounded-2xl border border-gray-200 shadow-sm space-y-8">
+        
+        <!-- TIÊU ĐỀ HỌC PHẦN -->
+        <div class="space-y-2 border-b-2 border-gray-100 pb-4">
+            <span class="text-xs font-bold uppercase text-[#2D5A27] bg-green-50 px-3 py-1 rounded-full border border-green-200">Mã học phần: HSB3128</span>
+            <h1 class="text-xl md:text-3xl font-black text-[#2D5A27] uppercase tracking-tight leading-tight pt-2">
+                HỌC PHẦN KỸ NĂNG SINH TỒN: TRANG BỊ NĂNG LỰC THÍCH ỨNG VÀ ỨNG PHÓ TRƯỚC MỌI TÌNH HUỐNG KHẨN CẤP
+            </h1>
+        </div>
+
+        <!-- KHUNG SLIDE ĐỘNG TỰ CO GIÃN THEO SIZE ẢNH -->
+        <div class="bg-gray-50 p-3 rounded-xl border border-gray-200 space-y-2">
+            <div class="rounded-lg overflow-hidden relative bg-gray-900 group shadow-inner transition-all duration-500 min-h-[200px] flex items-center justify-center">
+                
+                <!-- Ảnh h-auto và object-contain tự co giãn mượt mà theo kích thước thực tế -->
+                <img id="slider-image" src="anhwebsite/anh_bangbo.jpg" alt="Sinh viên học thực hành băng bó vết thương sơ cấp cứu" class="w-full h-auto max-h-[600px] object-contain transition-all duration-500 block mx-auto">
+                
+                <!-- Lớp mờ đen hỗ trợ đọc text trên ảnh -->
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none"></div>
+                
+                <!-- Nút bấm chuyển ảnh Lùi/Tiến -->
+                <button onclick="prevSlide()" class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-[#2D5A27] text-white w-10 h-10 rounded-full flex items-center justify-center transition opacity-0 group-hover:opacity-100 z-10">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button onclick="nextSlide()" class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-[#2D5A27] text-white w-10 h-10 rounded-full flex items-center justify-center transition opacity-0 group-hover:opacity-100 z-10">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+                
+                <!-- Chú thích ảnh hiển thị động -->
+                <div class="absolute bottom-3 left-4 right-4 text-white text-xs md:text-sm font-semibold drop-shadow z-10" id="slider-caption">
+                    Sinh viên HSB thực hành kỹ thuật sơ cấp cứu và băng bó vết thương chuyên dụng
+                </div>
+            </div>
+            
+            <!-- Hướng dẫn và Bộ đếm slide tự động tính toán -->
+            <div class="flex justify-between items-center text-[11px] text-gray-500 px-1 font-medium">
+                <span><i class="fa-solid fa-images mr-1"></i> Tư liệu hình ảnh học phần KỸ NĂNG SINH TỒN & NGHỆ THUẬT CHIẾN ĐẤU</span>
+                <span class="bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full" id="slider-counter">Slide 1 / 1</span>
+            </div>
+        </div>
+
+        <!-- NỘI DUNG VĂN BẢN -->
+        <div class="space-y-6 text-sm md:text-base text-gray-800 leading-relaxed text-justify">
+            <p>
+                Trong một thế giới ngày càng biến động bởi thiên tai, dịch bệnh, tai nạn, sự cố môi trường và các thách thức an ninh phi truyền thống, khả năng sinh tồn không còn là kỹ năng dành riêng cho những người hoạt động trong môi trường đặc biệt mà đã trở thành một năng lực thiết yếu của mỗi công dân hiện đại.
+            </p>
+            <p>
+                Với định hướng đào tạo nguồn nhân lực có khả năng thích ứng cao trước những biến động của xã hội, Trường Quản trị và Kinh doanh (HSB), Đại học Quốc gia Hà Nội triển khai học phần “Kỹ năng sinh tồn” (HSB3128) như một nội dung đào tạo đặc thù, giúp sinh viên xây dựng tư duy ứng phó, khả năng tự bảo vệ và năng lực hành động hiệu quả trong các tình huống khẩn cấp.
+            </p>
+            <p class="bg-green-50/70 p-4 border-l-4 border-[#2D5A27] font-medium rounded-r-xl text-gray-900 shadow-sm">
+                Khác với các học phần kỹ năng thông thường, Kỹ năng sinh tồn không chỉ cung cấp kiến thức mà còn đặt sinh viên vào những tình huống giả định gần với thực tế để rèn luyện khả năng quan sát, đánh giá nguy cơ và đưa ra quyết định trong điều kiện áp lực cao. Sinh viên được tiếp cận những nguyên tắc cốt lõi về tâm lý sinh tồn, học cách kiểm soát cảm xúc, duy trì sự bình tĩnh và xây dựng tư duy tích cực khi đối mặt với khó khăn hoặc khủng hoảng.
+            </p>
+            <p>
+                Nội dung học phần bao gồm nhiều kỹ năng thiết thực như tìm kiếm và thiết lập nơi trú ẩn an sau; nhận biết và khai thác nguồn nước, nguồn thực phẩm trong điều kiện hạn chế; kỹ thuật tạo lửa phục vụ sinh hoạt và cứu hộ; kỹ năng định vị, tìm đường và xác định phương hướng; kỹ năng phòng vệ trước côn trùng và động vật nguy hiểm; đồng thời trang bị kiến thức xử lý các tình huống khẩn cấp thường gặp trong đời sống.
+            </p>
+            <p>
+                Chương trình được tổ chức theo phương pháp đào tạo trải nghiệm, kết hợp giữa lý thuyết và thực hành ngoài trời. Dưới sự hướng dẫn của giảng viên chuyên môn, trợ giảng và đội ngũ kỹ thuật viên, sinh viên được trực tiếp tham gia các bài tập tình huống, thực hành theo nhóm và rèn luyện kỹ năng trong môi trường gần với điều kiện thực tế. Qua đó, người học không chỉ tiếp thu kiến thức mà còn phát triển khả năng phối hợp, hỗ trợ lẫn nhau và nâng cao tinh thần trách nhiệm tập thể.
+            </p>
+            
+            <!-- Hộp điểm nhấn kỹ năng sơ cấp cứu -->
+            <div class="bg-red-50/60 p-5 rounded-xl border border-red-200 space-y-3">
+                <h3 class="font-bold text-red-800 uppercase text-sm flex items-center gap-2">
+                    <i class="fa-solid fa-heart-pulse text-red-600 animate-pulse"></i> Trọng tâm kỹ năng sơ cấp cứu
+                </h3>
+                <p class="text-sm text-gray-800 leading-relaxed text-justify">
+                    Một nội dung đặc biệt quan trọng của học phần là chương trình thực hành sơ cấp cứu do các chuyên gia y tế trực tiếp hướng dẫn. Sinh viên được tiếp cận các kỹ thuật sơ cứu cơ bản nhưng có ý nghĩa sống còn như xử lý vết thương xây xát, cầm máu, băng bó, hỗ trợ người bị ngạt, choáng hoặc gặp các sự cố sức khỏe đột ngột. Các nội dung đều được thực hành trên hệ thống vật tư chuyên dụng, giúp sinh viên thành thạo kỹ năng và sẵn sàng ứng dụng khi cần thiết.
+                </p>
+            </div>
+            
+            <p>
+                Thông qua học phần Kỹ năng sinh tồn, sinh viên không chỉ học cách tồn tại trong những điều kiện khó khăn mà còn được rèn luyện khả năng thích ứng, tinh thần chủ động và ý thức trách nhiệm đối với bản thân và cộng đồng. Đây là những phẩm chất đặc biệt quan trọng đối với nguồn nhân lực thế hệ mới – những người không chỉ giỏi chuyên môn mà còn có khả năng ứng phó linh hoạt trước những thách thức ngày càng phức tạp của xã hội hiện đại.
+            </p>
+            <p class="font-semibold text-[#1E3D1A] border-t border-gray-100 pt-4">
+                Học phần Kỹ năng sinh tồn là minh chứng cho triết lý giáo dục của HSB: đào tạo con người toàn diện, kết hợp giữa tri thức, kỹ năng và bản lĩnh. Trong hành trình trở thành những nhà quản trị tương lai, sinh viên HSB không chỉ được trang bị năng lực lãnh đạo và tư duy chiến lược, mà còn sở hữu khả năng thích ứng và hành động hiệu quả trong mọi hoàn cảnh – những năng lực cốt lõi của công dân toàn cầu.
+            </p>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#1E3D1A] text-gray-400 text-xs py-6 text-center border-t border-gray-200">
+        <p class="font-bold text-[#E2F0D9] mb-1">Trung tâm Huấn luyện An ninh phi truyền thống - HSB</p>
+        <p>© 2026 Toàn bộ bản quyền nội dung thuộc về Viện An ninh phi truyền thống</p>
+    </footer>
+
+    <!-- SCRIPT ĐIỀU KHIỂN SLIDE ẢNH -->
+    <script>
+        // MẢNG DỮ LIỆU SLIDE - CÓ THỂ THÊM BỚT TÙY Ý ĐỂ CHẠY ĐỘNG
+        const slideData = [
+            {
+                src: "anhwebsite-resize/hpst1.webp",
+                //caption: "Sinh viên HSB thực hành kỹ thuật sơ cấp cứu và băng bó vết thương chuyên dụng"
+            },
+            {
+                src: "anhwebsite-resize/hpst2.webp",
+                //caption: "Sinh viên HSB thực hành kỹ thuật sơ cấp cứu và băng bó vết thương chuyên dụng"
+            },
+            {
+                src: "anhwebsite-resize/hpst3.webp",
+                //caption: "Sinh viên HSB thực hành kỹ thuật sơ cấp cứu và băng bó vết thương chuyên dụng"
+            },
+            {
+                src: "anhwebsite-resize/hpst4.webp",
+                //caption: "Sinh viên HSB thực hành kỹ thuật sơ cấp cứu và băng bó vết thương chuyên dụng"
+            },
+            {
+                src: "anhwebsite-resize/hpst5.webp",
+                //caption: "Sinh viên HSB thực hành kỹ thuật sơ cấp cứu và băng bó vết thương chuyên dụng"
+            },
+            {
+                src: "anhwebsite-resize/hpst6.webp",
+                //caption: "Sinh viên HSB thực hành kỹ thuật sơ cấp cứu và băng bó vết thương chuyên dụng"
+            },
+            {
+                src: "anhwebsite-resize/hpst7.webp",
+                //caption: "Sinh viên HSB thực hành kỹ thuật sơ cấp cứu và băng bó vết thương chuyên dụng"
+            },
+            {
+                src: "anhwebsite-resize/hpst8.webp",
+                //caption: "Sinh viên HSB thực hành kỹ thuật sơ cấp cứu và băng bó vết thương chuyên dụng"
+            },
+            {
+                src: "anhwebsite-resize/hpst9.webp",
+                //caption: "Sinh viên HSB thực hành kỹ thuật sơ cấp cứu và băng bó vết thương chuyên dụng"
+            },
+            {
+                src: "anhwebsite-resize/hpst10.webp",
+                //caption: "Sinh viên HSB thực hành kỹ thuật sơ cấp cứu và băng bó vết thương chuyên dụng"
+            },
+            {
+                src: "anhwebsite-resize/hpst11.webp",
+                //caption: "Sinh viên HSB thực hành kỹ thuật sơ cấp cứu và băng bó vết thương chuyên dụng"
+            },
+            {
+                src: "anhwebsite-resize/hpst12.webp",
+                //caption: "Sinh viên HSB thực hành kỹ thuật sơ cấp cứu và băng bó vết thương chuyên dụng"
+            },
+            {
+                src: "anhwebsite-resize/hpst13.webp",
+                //caption: "Sinh viên HSB thực hành kỹ thuật sơ cấp cứu và băng bó vết thương chuyên dụng"
+            },
+            {
+                src: "anhwebsite-resize/hpst14.webp",
+                //caption: "Sinh viên HSB thực hành kỹ thuật sơ cấp cứu và băng bó vết thương chuyên dụng"
+            },
+            {
+                src: "anhwebsite-resize/hpst15.webp",
+                //caption: "Sinh viên HSB thực hành kỹ thuật sơ cấp cứu và băng bó vết thương chuyên dụng"
+            },
+            {
+                src: "anhwebsite-resize/hpst16.webp",
+                //caption: "Sinh viên HSB thực hành kỹ thuật sơ cấp cứu và băng bó vết thương chuyên dụng"
+            },
+            {
+                src: "anhwebsite-resize/hpst17.webp",
+                //caption: "Sinh viên HSB thực hành kỹ thuật sơ cấp cứu và băng bó vết thương chuyên dụng"
+            },
+            {
+                src: "anhwebsite-resize/hpst18.webp",
+                //caption: "Sinh viên HSB thực hành kỹ thuật sơ cấp cứu và băng bó vết thương chuyên dụng"
+            }
+            // Thêm ảnh mới tại đây nếu có, ví dụ:
+            // , { src: "anhwebsite/anh_sinhton2.jpg", caption: "Sinh viên thực hành tạo lửa trong điều kiện hạn chế" }
+        ];
+
+        let currentIndex = 0;
+        let slideInterval;
+
+        function updateSlide() {
+            const imgElement = document.getElementById('slider-image');
+            const captionElement = document.getElementById('slider-caption');
+            const counterElement = document.getElementById('slider-counter');
+
+            // Tạo hiệu ứng mờ nhạt dần khi chuyển đổi ảnh
+            imgElement.style.opacity = 0.3;
+            
+            setTimeout(() => {
+                imgElement.src = slideData[currentIndex].src;
+                counterElement.innerText = `Slide ${currentIndex + 1} / ${slideData.length}`;
+        
+                // KIỂM TRA: Nếu có caption và caption không trống thì mới hiển thị
+                if (slideData[currentIndex].caption) {
+                captionElement.innerText = slideData[currentIndex].caption;
+                captionElement.style.display = "block"; // Hiện thanh chú thích
+                } else {
+                captionElement.style.display = "none";  // Ẩn thanh chú thích đi khi không có chữ
+                }
+        
+                imgElement.style.opacity = 1;
+            }, 200);
+        }
+
+        function nextSlide() {
+            if (slideData.length <= 1) return;
+            currentIndex = (currentIndex + 1) % slideData.length;
+            updateSlide();
+            resetInterval();
+        }
+
+        function prevSlide() {
+            if (slideData.length <= 1) return;
+            currentIndex = (currentIndex - 1 + slideData.length) % slideData.length;
+            updateSlide();
+            resetInterval();
+        }
+
+        function startInterval() {
+            if (slideData.length <= 1) return;
+            slideInterval = setInterval(nextSlide, 5000); // Tự động chuyển tiếp sau mỗi 5 giây
+        }
+
+        function resetInterval() {
+            clearInterval(slideInterval);
+            startInterval();
+        }
+
+        // Kích hoạt chạy slide ngay khi trang tải xong cấu trúc DOM
+        document.addEventListener("DOMContentLoaded", () => {
+            updateSlide();
+            startInterval();
+        });
+    </script>
+</body>
+</html>

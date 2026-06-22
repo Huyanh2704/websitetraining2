@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Học phần Nghệ thuật chiến đấu - HSB</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-[#F4F9F3] text-gray-900 font-sans antialiased">
+
+    <!-- BREADCRUMB -->
+    <div class="bg-[#1E3D1A] text-white py-3 px-6 shadow-sm sticky top-0 z-50">
+        <div class="max-w-[1000px] mx-auto flex justify-between items-center text-xs md:text-sm">
+            <a href="index.html" class="hover:text-[#E2F0D9] font-bold transition flex items-center gap-2">
+                <i class="fa-solid fa-arrow-left"></i> QUAY LẠI TRANG CHỦ
+            </a>
+            <span class="text-gray-400 font-medium">Chương trình đào tạo / HSB3127</span>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="max-w-[1000px] mx-auto bg-white my-8 p-6 md:p-12 rounded-2xl border border-gray-200 shadow-sm space-y-8">
+        
+        <!-- TIÊU ĐỀ HỌC PHẦN -->
+        <div class="space-y-2 border-b-2 border-gray-100 pb-4">
+            <span class="text-xs font-bold uppercase text-[#2D5A27] bg-green-50 px-3 py-1 rounded-full border border-green-200">Mã học phần: HSB3127</span>
+            <h1 class="text-xl md:text-3xl font-black text-[#2D5A27] uppercase tracking-tight leading-tight pt-2">
+                HỌC PHẦN NGHỆ THUẬT CHIẾN ĐẤU: RÈN LUYỆN BẢN LĨNH, NÂNG CAO NĂNG LỰC TỰ VỆ TRONG THỜI ĐẠI MỚI
+            </h1>
+        </div>
+
+        <!-- KHUNG SLIDE ĐỘNG TỰ CO GIÃN THEO SIZE ẢNH -->
+        <div class="bg-gray-50 p-3 rounded-xl border border-gray-200 space-y-2">
+            <!-- Đã loại bỏ class ép tỷ lệ cứng, khung tự co giãn mượt mà -->
+            <div class="rounded-lg overflow-hidden relative bg-gray-900 group shadow-inner transition-all duration-500 min-h-[200px] flex items-center justify-center">
+                
+                <!-- Sử dụng h-auto và object-contain để hiển thị trọn vẹn kích thước ảnh gốc -->
+                <img id="slider-image" src="anhwebsite/anh_cscd.jpg" alt="Sinh viên học thực tế tại Bộ tư lệnh cảnh sát cơ động" class="w-full h-auto max-h-[600px] object-contain transition-all duration-500 block mx-auto">
+                
+                <!-- Lớp mờ đen hỗ trợ đọc text trên ảnh -->
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none"></div>
+                
+                <!-- Nút bấm chuyển ảnh Lùi/Tiến -->
+                <button onclick="prevSlide()" class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-[#2D5A27] text-white w-10 h-10 rounded-full flex items-center justify-center transition opacity-0 group-hover:opacity-100 z-10">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button onclick="nextSlide()" class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-[#2D5A27] text-white w-10 h-10 rounded-full flex items-center justify-center transition opacity-0 group-hover:opacity-100 z-10">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+                
+                <!-- Chú thích ảnh hiển thị động -->
+                <div class="absolute bottom-3 left-4 right-4 text-white text-xs md:text-sm font-semibold drop-shadow z-10" id="slider-caption">
+                    Sinh viên HSB học tập và huấn luyện thực tế tại Bộ tư lệnh Cảnh sát cơ động
+                </div>
+            </div>
+            
+            <!-- Hướng dẫn và Bộ đếm slide tự động cập nhật -->
+            <div class="flex justify-between items-center text-[11px] text-gray-500 px-1 font-medium">
+                <span><i class="fa-solid fa-images mr-1"></i> Tư liệu hình ảnh học phần KỸ NĂNG SINH TỒN & NGHỆ THUẬT CHIẾN ĐẤU</span>
+                <span class="bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full" id="slider-counter">Slide 1 / 1</span>
+            </div>
+        </div>
+
+        <!-- NỘI DUNG VĂN BẢN -->
+        <div class="space-y-6 text-sm md:text-base text-gray-800 leading-relaxed text-justify">
+            <p>
+                Trong bối cảnh các thách thức an ninh phi truyền thống ngày càng đa dạng và phức tạp, năng lực tự bảo vệ bản thân, xử lý tình huống nguy hiểm và duy trì sự bình tĩnh trước các rủi ro bất ngờ đã trở thành những kỹ năng quan trọng đối với mỗi cá nhân. Với định hướng đào tạo nguồn nhân lực có năng lực thích ứng cao, Trường Quản trị và Kinh doanh (HSB), Đại học Quốc gia Hà Nội đã đưa học phần “Nghệ thuật chiến đấu” (HSB3127) vào chương trình đào tạo như một học phần kỹ năng đặc thù, góp phần phát triển toàn diện thể chất, bản lĩnh và năng lực ứng phó thực tiễn cho sinh viên.
+            </p>
+            <p class="bg-green-50/70 p-4 border-l-4 border-[#2D5A27] font-medium rounded-r-xl text-gray-900 shadow-sm">
+                Khác với quan niệm thông thường về võ thuật chỉ nhằm mục đích rèn luyện thể lực, học phần Nghệ thuật chiến đấu được xây dựng trên cơ sở khoa học của quản trị rủi ro và an ninh cá nhân, giúp sinh viên hiểu rõ nguyên tắc tự vệ, kỹ năng bảo đảm an toàn cho bản thân và khả năng phản ứng phù hợp trong những tình huống khẩn cấp.
+            </p>
+            <p>
+                Nội dung học phần được thiết kế theo hướng thực hành chuyên sâu, bao gồm các kỹ thuật tấn công cơ bản như thế đứng, di chuyển, đòn tay, đòn chân; các kỹ thuật phòng ngự như gạt đỡ, tránh né, kỹ thuật ngã an toàn; đồng thời rèn luyện các bài quyền tổng hợp và kỹ năng ứng dụng trong các tình huống chiến đấu tự vệ đối với đối tượng tay không hoặc sử dụng vũ khí thô sơ. Thông qua quá trình học tập, sinh viên không chỉ nâng cao khả năng phản xạ và phối hợp vận động mà còn hình thành tư duy quan sát, đánh giá tình huống và đưa ra quyết định nhanh chóng trong môi trường áp lực cao.
+            </p>
+            <p>
+                Chương trình được triển khai theo phương pháp đào tạo hiện đại, kết hợp chặt chẽ giữa lý thuyết và thực hành. Sinh viên được luyện tập theo hình thức cá nhân và nhóm dưới sự hướng dẫn trực tiếp của giảng viên chuyên môn, trợ giảng và đội ngũ kỹ thuật viên hỗ trợ. Cách tiếp cận này giúp người học từng bước làm chủ kỹ thuật, đồng thời phát triển tinh thần kỷ luật, khả năng phối hợp và ý thức trách nhiệm trong tập thể.
+            </p>
+            <div class="bg-amber-50/60 p-5 rounded-xl border border-amber-200 space-y-3">
+                <h3 class="font-bold text-[#2D5A27] uppercase text-sm flex items-center gap-2">
+                    <i class="fa-solid fa-star text-amber-500"></i> Điểm nhấn đặc biệt từ thực tiễn
+                </h3>
+                <p class="text-sm text-gray-800 leading-relaxed text-justify">
+                    Một điểm nhấn đặc biệt của học phần là hoạt động học tập thực tế tại các đơn vị huấn luyện thuộc Bộ Công an và Bộ Quốc phòng. Tại đây, sinh viên được tìm hiểu chức năng, nhiệm vụ của các lực lượng chuyên trách trong lĩnh vực bảo đảm an ninh, quốc phòng; tham quan hệ thống trang thiết bị hiện đại, khu vực huấn luyện chuyên dụng; đồng thời trực tiếp quan sát các màn trình diễn nghiệp vụ, võ thuật và chiến thuật đặc nhiệm. Những trải nghiệm thực tế này giúp sinh viên có cái nhìn sinh động về môi trường công tác của các lực lượng thực thi nhiệm vụ bảo vệ an ninh quốc gia, từ đó hiểu rõ hơn giá trị của tinh thần kỷ luật, bản lĩnh và trách nhiệm đối với cộng đồng.
+                </p>
+            </div>
+            <p>
+                Học phần Nghệ thuật chiến đấu không hướng đến việc đào tạo những võ sĩ chuyên nghiệp, mà tập trung hình thành ở sinh viên năng lực tự vệ, khả năng kiểm soát bản thân và tinh thần sẵn sàng ứng phó trước các tình huống bất ngờ trong cuộc sống. Đây là một trong những năng lực nền tảng của công dân thời đại số, đặc biệt đối với những nhà quản trị tương lai phải làm việc trong môi trường nhiều biến động và rủi ro.
+            </p>
+            <p class="font-semibold text-[#1E3D1A] border-t border-gray-100 pt-4">
+                Thông qua học phần này, HSB tiếp tục khẳng định triết lý đào tạo gắn tri thức với hành động, gắn giảng đường với thực tiễn và gắn năng lực chuyên môn với trách nhiệm xã hội. Bởi trong thế giới hiện đại, thành công không chỉ đến từ kiến thức, mà còn được tạo nên bởi bản lĩnh, khả năng thích ứng và năng lực bảo vệ chính mình trước những thách thức không ngừng thay đổi của thời đại.
+            </p>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#1E3D1A] text-gray-400 text-xs py-6 text-center border-t border-gray-200">
+        <p class="font-bold text-[#E2F0D9] mb-1">Trung tâm Huấn luyện An ninh phi truyền thống - HSB</p>
+        <p>© 2026 Toàn bộ bản quyền nội dung thuộc về Viện An ninh phi truyền thống</p>
+    </footer>
+
+    <!-- SCRIPT ĐIỀU KHIỂN SLIDE ẢNH TỰ ĐỘNG CHẠY -->
+    <script>
+        // BẠN CÓ THỂ THÊM HOẶC BỚT BAO NHIÊU ẢNH TÙY Ý VÀO MẢNG DƯỚI ĐÂY
+        const slideData = [
+            {
+                src: "anhwebsite-resize/hpcd1.webp",
+                //caption: "Sinh viên HSB học tập và huấn luyện thực tế tại Bộ tư lệnh Cảnh sát cơ động"
+            },
+            {
+                src: "anhwebsite-resize/hpcd2.webp",
+                //caption: "Sinh viên HSB học tập và huấn luyện thực tế tại Bộ tư lệnh Cảnh sát cơ động"
+            },
+            {
+                src: "anhwebsite-resize/hpcd3.webp",
+                //caption: "Sinh viên HSB học tập và huấn luyện thực tế tại Bộ tư lệnh Cảnh sát cơ động"
+            },
+            {
+                src: "anhwebsite-resize/hpcd4.webp",
+                //caption: "Sinh viên HSB học tập và huấn luyện thực tế tại Bộ tư lệnh Cảnh sát cơ động"
+            },
+            {
+                src: "anhwebsite-resize/hpcd5.webp",
+                //caption: "Sinh viên HSB học tập và huấn luyện thực tế tại Bộ tư lệnh Cảnh sát cơ động"
+            },
+            {
+                src: "anhwebsite-resize/hpcd6.webp",
+                //caption: "Sinh viên HSB học tập và huấn luyện thực tế tại Bộ tư lệnh Cảnh sát cơ động"
+            },
+            {
+                src: "anhwebsite-resize/hpcd7.webp",
+                //caption: "Sinh viên HSB học tập và huấn luyện thực tế tại Bộ tư lệnh Cảnh sát cơ động"
+            },
+            {
+                src: "anhwebsite-resize/hpcd8.webp",
+                //caption: "Sinh viên HSB học tập và huấn luyện thực tế tại Bộ tư lệnh Cảnh sát cơ động"
+            },
+            {
+                src: "anhwebsite-resize/hpcd9.webp",
+                //caption: "Sinh viên HSB học tập và huấn luyện thực tế tại Bộ tư lệnh Cảnh sát cơ động"
+            },
+            {
+                src: "anhwebsite-resize/hpcd10.webp",
+                //caption: "Sinh viên HSB học tập và huấn luyện thực tế tại Bộ tư lệnh Cảnh sát cơ động"
+            },
+            {
+                src: "anhwebsite-resize/hpcd11.webp",
+                //caption: "Sinh viên HSB học tập và huấn luyện thực tế tại Bộ tư lệnh Cảnh sát cơ động"
+            },
+            {
+                src: "anhwebsite-resize/hpcd12.webp",
+                //caption: "Sinh viên HSB học tập và huấn luyện thực tế tại Bộ tư lệnh Cảnh sát cơ động"
+            }
+            // Thêm ảnh mới tại đây theo cấu pháp:
+            // , { src: "anhwebsite/anh_moi.jpg", caption: "Mô tả ảnh mới" }
+        ];
+
+        let currentIndex = 0;
+        let slideInterval;
+
+        function updateSlide() {
+            const imgElement = document.getElementById('slider-image');
+            const captionElement = document.getElementById('slider-caption');
+            const counterElement = document.getElementById('slider-counter');
+
+            // Hiệu ứng chuyển cảnh mượt
+            imgElement.style.opacity = 0.3;
+            
+            setTimeout(() => {
+                imgElement.src = slideData[currentIndex].src;
+                counterElement.innerText = `Slide ${currentIndex + 1} / ${slideData.length}`;
+        
+                // KIỂM TRA: Nếu có caption và caption không trống thì mới hiển thị
+                if (slideData[currentIndex].caption) {
+                    captionElement.innerText = slideData[currentIndex].caption;
+                    captionElement.style.display = "block"; // Hiện thanh chú thích
+                } else {
+                    captionElement.style.display = "none";  // Ẩn thanh chú thích đi khi không có chữ
+                }
+        
+                imgElement.style.opacity = 1;
+            }, 200);
+        }
+
+        function nextSlide() {
+            if (slideData.length <= 1) return;
+            currentIndex = (currentIndex + 1) % slideData.length;
+            updateSlide();
+            resetInterval();
+        }
+
+        function prevSlide() {
+            if (slideData.length <= 1) return;
+            currentIndex = (currentIndex - 1 + slideData.length) % slideData.length;
+            updateSlide();
+            resetInterval();
+        }
+
+        function startInterval() {
+            if (slideData.length <= 1) return;
+            slideInterval = setInterval(nextSlide, 5000); // Tự động chạy sau mỗi 5 giây
+        }
+
+        function resetInterval() {
+            clearInterval(slideInterval);
+            startInterval();
+        }
+
+        // Khởi tạo chạy slide ban đầu khi DOM đã sẵn sàng
+        document.addEventListener("DOMContentLoaded", () => {
+            updateSlide();
+            startInterval();
+        });
+    </script>
+</body>
+</html>
