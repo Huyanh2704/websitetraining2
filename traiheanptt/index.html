@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trung tâm huấn luyện An ninh phi truyền thống - HSB (Version 2 - Parallax Green)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* Hiệu ứng bóng đổ chuẩn HSB được tinh chỉnh hài hòa trên nền sáng */
+        .hsb-shadow {
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        .hsb-shadow:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            transform: translateY(-2px);
+        }
+        img { pointer-events: none; user-select: none; -webkit-user-drag: none; }
+    </style>
+</head>
+<body class="bg-[#F8F9FA] text-gray-800 font-sans antialiased">
+
+    <!-- TOP HEADER (Giữ cố định trên cùng) -->
+    <div class="bg-white border-b border-gray-200 py-3 px-4 md:px-6 shadow-sm relative z-50">
+        <div class="max-w-[1300px] mx-auto flex flex-col sm:flex-row justify-between items-center gap-3">
+            <div class="flex items-center space-x-3 text-center sm:text-left">
+                <img src="anhwebsite/logoqs.png" alt="Logo HSB" class="h-14 md:h-16 w-auto object-contain">
+                <div>
+                    <h1 class="text-[10px] font-bold text-gray-400 uppercase tracking-wide leading-none">Trường Quản trị và Kinh doanh</h1>
+                    <h2 class="text-xs md:text-sm font-black text-[#1E4620] uppercase tracking-tight mt-1">Đại Học Quốc Gia Hà Nội</h2>
+                </div>
+            </div>
+            <div class="flex items-center justify-center sm:justify-end gap-4 w-full sm:w-auto">
+                <div class="flex items-center space-x-2">
+                    <img src="anhwebsite-resize/ins.png" alt="Logo INS" class="h-11 md:h-14 w-auto object-contain">
+                </div>
+                <div class="bg-amber-50 border border-amber-200 rounded-xl px-3 py-1.5 flex items-center gap-2.5">
+                    <div class="text-left">
+                        <span class="text-[9px] font-bold text-amber-700 block uppercase tracking-wider leading-none">Hotline</span>
+                        <a href="tel:0859.234.666" class="text-xs font-black text-amber-900 block mt-0.5">0859.234.666</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MENU ĐIỀU HƯỚNG CHÍNH (Đã đổi sang màu xanh lá chủ đạo) -->
+    <div class="bg-[#1E4620] text-white sticky top-0 z-50 shadow-md">
+        <div class="max-w-[1300px] mx-auto px-4">
+            <nav class="flex flex-wrap justify-center sm:justify-start gap-1 py-2 text-xs font-bold uppercase tracking-wider">
+                <a href="#gioi-thieu" class="px-4 py-2 rounded hover:bg-[#143016] transition text-gray-200">Giới thiệu</a>
+                <a href="#chuong-trinh" class="px-4 py-2 rounded hover:bg-[#143016] transition text-gray-200">Chương trình đào tạo</a>
+                <a href="#trai-he" class="px-4 py-2 rounded hover:bg-[#143016] transition text-gray-200">Trại hè & Tài liệu</a>
+                <a href="#tin-tuc" class="px-4 py-2 rounded hover:bg-[#143016] transition text-gray-200">Tin tức hoạt động</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- ================= BANNER VIDEO KHÓA NỀN (STICKY/FIXED BACKGROUND) ================= -->
+    <div class="w-full h-[65vh] md:h-[75vh] sticky top-[40px] z-0 overflow-hidden bg-black">
+        <div class="absolute inset-0 w-full h-full pointer-events-none scale-[1.02]">
+            <iframe class="w-full h-full object-cover" 
+                    src="https://www.youtube.com/embed/I_LagqIO_b8?si=mnmEzyZs5uyy53iX&autoplay=1&mute=1&controls=0&showinfo=0&rel=0&loop=1&playlist=I_LagqIO_b8" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+            </iframe>
+        </div>
+        <!-- Lớp phủ tối nhẹ để video nhìn nghệ thuật hơn -->
+        <div class="absolute inset-0 bg-black/20"></div>
+    </div>
+
+    <!-- ================= KHỐI NỘI DUNG CHÍNH DI CHUYỂN ĐÈ LÊN VIDEO VÀ LIỀN MẠCH ================= -->
+    <div class="relative z-10 bg-[#F8F9FA] shadow-[0_-15px_30px_rgba(0,0,0,0.15)]">
+        
+        <!-- CÂU QUOTE ĐÓN ĐẦU - BẮT ĐẦU CHO SỰ LIỀN MẠCH KHI KÉO LÊN (Nền xanh lá đậm tôn vinh chữ trắng) -->
+        <div class="bg-[#1E4620] text-white py-12 px-6 border-b-4 border-[#143016]">
+            <div class="max-w-[1000px] mx-auto text-center space-y-4" data-aos="zoom-in">
+                <span class="text-[#1E4620] bg-white font-bold text-[10px] tracking-widest px-3 py-1 rounded uppercase">Phương châm huấn luyện</span>
+                <h2 class="text-3xl md:text-5xl font-serif font-medium tracking-tight leading-tight text-gray-100">
+                    RÈN BẢN LĨNH — LUYỆN Ý CHÍ
+                </h2>
+                <div class="w-16 h-0.5 bg-amber-500 mx-auto my-2"></div>
+                <p class="text-xs md:text-sm text-gray-300 max-w-2xl mx-auto leading-relaxed font-medium italic">
+                    "Không gian huấn luyện thực hành, diễn tập tổng hợp và đào tạo kỹ năng ứng phó toàn diện trước các thách thức an ninh phi truyền thống thực tiễn."
+                </p>
+            </div>
+        </div>
+
+        <!-- PHẦN THÂN TRANG LIỀN MẠCH -->
+        <div class="max-w-[1300px] mx-auto px-4 md:px-6 py-12 space-y-16">
+
+            <!-- TIÊU ĐỀ PHÂN HỆ MÔ PHỎNG THEO "CAMPUS NEWS" -->
+            <div class="text-center space-y-2" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-serif text-[#1E4620] font-medium tracking-tight">Trung Tâm Huấn Luyện</h2>
+                <p class="text-sm text-gray-500 italic">An ninh phi truyền thống và giải pháp đào tạo huấn luyện thực tiễn tại HSB</p>
+                <div class="w-16 h-0.5 bg-[#1E4620] mx-auto mt-3"></div>
+            </div>
+
+            <!-- ================= 1. MỤC GIỚI THIỆU CHUNG ================= -->
+            <section id="gioi-thieu" class="space-y-6" data-aos="fade-up">
+                <div class="border-b border-gray-200 pb-2">
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400">Giới thiệu chung về trung tâm</h3>
+                </div>
+                
+                <div class="bg-white rounded overflow-hidden hsb-shadow p-6 md:p-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="aspect-[16/10] bg-gray-100 rounded overflow-hidden">
+                            <img src="anhwebsite-resize/bavieco1.webp" class="w-full h-full object-cover" alt="Giới thiệu HSB">
+                        </div>
+                        <div class="space-y-4">
+                            <span class="text-[10px] font-bold tracking-widest uppercase text-green-700">OVERVIEW</span>
+                            <h4 class="text-xl md:text-2xl font-serif text-[#1E4620] font-medium">Tiên phong trong đào tạo & Diễn tập liên ngành</h4>
+                            <p class="text-sm text-gray-600 leading-relaxed text-justify">
+                                Trường Quản trị và Kinh doanh (HSB), Đại học Quốc gia Hà Nội, là đơn vị giáo dục đại học công lập tiên phong trong tự chủ đại học, có nhiều sáng tạo đột phá trong đào tạo, nghiên cứu và tư vấn chiến lược liên ngành quốc gia. Trung tâm phối hợp chặt chẽ cùng Viện An ninh phi truyền thống tạo ra môi trường học tập, diễn tập mô phỏng thực tế hiện đại nhất.
+                            </p>
+                            <div class="pt-2">
+                                <a href="gioi-thieu.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#1E4620] uppercase hover:underline">Tìm hiểu thêm về cơ cấu tổ chức ➔</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ================= 2. MỤC CHƯƠNG TRÌNH ĐÀO TẠO ================= -->
+            <section id="chuong-trinh" class="space-y-6" data-aos="fade-up">
+                <div class="border-b border-gray-200 pb-2">
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400">Chương trình huấn luyện trọng điểm</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Card Học Phần 1 -->
+                    <div class="bg-white rounded overflow-hidden hsb-shadow flex flex-col justify-between">
+                        <div>
+                            <div class="aspect-[16/10] overflow-hidden bg-gray-100"><img src="anhwebsite-resize/hpst5.webp" class="w-full h-full object-cover"></div>
+                            <div class="p-4 space-y-2">
+                                <span class="text-[10px] font-bold tracking-widest uppercase text-green-600">HỌC PHẦN 01</span>
+                                <h4 class="font-bold text-base text-gray-900">Kỹ năng sinh tồn toàn diện trong điều kiện khẩn cấp</h4>
+                                <p class="text-xs text-gray-500 leading-relaxed">Rèn luyện tâm lý khủng hoảng, kỹ nghệ tìm kiếm nguồn nước, tạo lửa dã chiến và dựng lán trú ẩn an toàn.</p>
+                            </div>
+                        </div>
+                        <div class="p-4 pt-0"><a href="ky-nang-sing-ton.html" class="text-xs font-bold text-[#1E4620] hover:underline">Xem nội dung học ➔</a></div>
+                    </div>
+
+                    <!-- Card Học Phần 2 -->
+                    <div class="bg-white rounded overflow-hidden hsb-shadow flex flex-col justify-between">
+                        <div>
+                            <div class="aspect-[16/10] overflow-hidden bg-gray-100"><img src="anhwebsite-resize/hpcd12.webp" class="w-full h-full object-cover"></div>
+                            <div class="p-4 space-y-2">
+                                <span class="text-[10px] font-bold tracking-widest uppercase text-green-600">HỌC PHẦN 02</span>
+                                <h4 class="font-bold text-base text-gray-900">Nghệ thuật chiến đấu tự vệ và chỉ huy thực địa</h4>
+                                <p class="text-xs text-gray-500 leading-relaxed">Tối ưu thể chất dẻo dai, kỹ thuật tự vệ tay không and tư duy chiến thuật ứng phó đám đông.</p>
+                            </div>
+                        </div>
+                        <div class="p-4 pt-0"><a href="nghe-thuat-chien-dau.html" class="text-xs font-bold text-[#1E4620] hover:underline">Xem nội dung học ➔</a></div>
+                    </div>
+
+                    <!-- Card Học Phần 3 -->
+                    <div class="bg-white rounded overflow-hidden hsb-shadow flex flex-col justify-between">
+                        <div>
+                            <div class="aspect-[16/10] overflow-hidden bg-gray-100"><img src="anhwebsite-resize/hpcd11.webp" class="w-full h-full object-cover"></div>
+                            <div class="p-4 space-y-2">
+                                <span class="text-[10px] font-bold tracking-widest uppercase text-green-600">HỌC PHẦF 03</span>
+                                <h4 class="font-bold text-base text-gray-900">Quản trị rủi ro & Khủng hoảng phi truyền thống</h4>
+                                <p class="text-xs text-gray-500 leading-relaxed">Nhận diện sớm các hiểm họa về an ninh số, an ninh môi trường và thiết lập kịch bản ứng phó phòng ngừa bài bản.</p>
+                            </div>
+                        </div>
+                        <div class="p-4 pt-0"><a href="#" class="text-xs font-bold text-[#1E4620] hover:underline">Xem nội dung học ➔</a></div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ================= 3. MỤC TRẠI HÈ & TÀI LIỆU ĐÍNH KÈM ================= -->
+            <section id="trai-he" class="space-y-6" data-aos="fade-up">
+                <div class="border-b border-gray-200 pb-2">
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400">Trại hè huấn luyện & Tài liệu đính kèm</h3>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                    <!-- Trại hè -->
+                    <div class="lg:col-span-8 bg-white rounded overflow-hidden hsb-shadow p-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
+                            <div class="aspect-[16/10] overflow-hidden bg-gray-100 rounded">
+                                <img src="anhwebsite-resize/traihe16.webp" class="w-full h-full object-cover">
+                            </div>
+                            <div class="space-y-3">
+                                <span class="text-[10px] font-bold tracking-widest uppercase text-amber-700">CAMP TRAINING</span>
+                                <h4 class="font-bold text-lg text-gray-900">Trại Hè Quân Đội & Kỹ Năng Sinh Tồn Thiên Nhiên Ba Vì</h4>
+                                <p class="text-xs text-gray-500 leading-relaxed text-justify">
+                                    Khóa huấn luyện dã ngoại biệt lập dành cho thế hệ trẻ từ 6 - 15 tuổi tại tổ hợp thao trường Bavieco Ba Vì. Kiến tạo nề nếp kỷ luật thép, nâng cao tinh thần tự lập và phản xạ sinh tồn thực địa một cách khoa học.
+                                </p>
+                                <div class="pt-1">
+                                    <a href="trai-he-tong-quan.html" class="text-xs font-bold text-[#1E4620] hover:underline">Chi tiết toàn bộ lịch trình ➔</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tài liệu đính kèm (Giữ tag đỏ chuẩn tài liệu PDF) -->
+                    <div class="lg:col-span-4 bg-white rounded overflow-hidden hsb-shadow border-t-4 border-red-600 flex flex-col justify-between p-6">
+                        <div class="space-y-3">
+                            <span class="text-[10px] font-bold tracking-widest uppercase text-red-600">BROCHURE PDF</span>
+                            <h4 class="font-bold text-base text-gray-900 uppercase">Tài liệu giới thiệu phân hệ đào tạo</h4>
+                            <p class="text-xs text-gray-500 leading-relaxed">
+                                Xem trực tuyến hoặc tải về sơ đồ phân bổ khung chương trình huấn luyện ngắn hạn, quy trình đăng ký và cam kết an toàn.
+                            </p>
+                        </div>
+                        <div class="pt-4">
+                            <a href="https://drive.google.com/file/d/1La2Q4QgA7zKK8_1KphNbAiGNKrmiIpww/view?usp=sharing" target="_blank" class="w-full text-center bg-red-700 text-white font-bold py-2.5 px-4 rounded text-xs hover:bg-red-800 transition shadow-md flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-file-pdf"></i> Tải Brochure chính thức (.PDF)
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ================= 4. MỤC TIN TỨC HOẠT ĐỘNG ================= -->
+            <section id="tin-tuc" class="space-y-6" data-aos="fade-up">
+                <div class="border-b border-gray-200 pb-2">
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400">Tin tức hoạt động mới nhất</h3>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                    <!-- CỘT TRÁI: TIN NỔI BẬT LỚN -->
+                    <div class="lg:col-span-6 relative rounded overflow-hidden hsb-shadow bg-white flex flex-col justify-end min-h-[400px] group">
+                        <div class="absolute inset-0 z-0 overflow-hidden">
+                            <img src="anhwebsite-resize/hpcd6.webp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Tin nổi bật">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                        </div>
+                        <div class="relative z-10 p-6 space-y-2 text-white">
+                            <span class="text-[10px] font-bold tracking-widest uppercase text-gray-300">NEWS</span>
+                            <h4 class="text-xl md:text-2xl font-bold leading-tight">
+                                <a href="tin-tuc-sinh-vien.html" class="hover:underline">Sinh viên HSB học thực tiễn và huấn luyện diễn tập tại Bộ Tư lệnh Cảnh sát cơ động</a>
+                            </h4>
+                        </div>
+                    </div>
+
+                    <!-- CỘT GIỮA: TIN PHỤ SỐ 1 -->
+                    <div class="lg:col-span-3 bg-white rounded overflow-hidden hsb-shadow flex flex-col justify-between">
+                        <div>
+                            <div class="aspect-[16/10] w-full overflow-hidden bg-gray-100">
+                                <img src="anhwebsite-resize/hpthuctien3.webp" class="w-full h-full object-cover" alt="Tin phụ 1">
+                            </div>
+                            <div class="p-4 space-y-2">
+                                <span class="text-[10px] font-bold tracking-widest uppercase text-green-700">STUDENT</span>
+                                <h5 class="font-bold text-sm text-gray-900 leading-snug hover:text-green-800 transition">
+                                    <a href="tin-tuc-trai-he.html">Chào đón các chiến binh nhí chính thức nhập ngũ học kỳ trại hè sinh tồn 2026</a>
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="p-4 pt-0">
+                            <span class="text-[11px] text-gray-400">June 18, 2026</span>
+                        </div>
+                    </div>
+
+                    <!-- CỘT PHẢI: TIN PHỤ SỐ 2 (THUẦN CHỮ - Đường border-t xanh lá cây) -->
+                    <div class="lg:col-span-3 bg-white rounded overflow-hidden hsb-shadow flex flex-col justify-between border-t-4 border-[#1E4620]">
+                        <div class="p-5 space-y-4">
+                            <span class="text-[10px] font-bold tracking-widest uppercase text-green-700">PROGRAMS</span>
+                            <div class="space-y-2">
+                                <h5 class="font-bold text-sm text-gray-900 uppercase tracking-tight leading-snug">
+                                    Thông báo kết quả phân loại học phần và lịch diễn tập thực hành liên ngành cuối khóa
+                                </h5>
+                                <p class="text-xs text-gray-500 leading-relaxed">
+                                    Hội đồng điều phối thông báo danh sách phân bổ thao trường cho học phần Quản trị khủng hoảng phi truyền thống...
+                                </p>
+                            </div>
+                        </div>
+                        <div class="p-5 pt-0">
+                            <a href="#" class="text-[11px] font-bold text-[#1E4620] uppercase hover:underline">Chi tiết thông báo ➔</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- FOOTER (Đã chuyển sang Deep Forest Green cực sang trọng) -->
+        <footer class="bg-[#112912] text-gray-400 text-xs py-10 border-t-4 border-[#1E4620]">
+            <div class="max-w-[1300px] mx-auto px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pb-8 border-b border-white/10">
+                    <div class="lg:col-span-7 space-y-3">
+                        <p class="font-bold text-white text-sm uppercase">Trung tâm Huấn luyện An ninh phi truyền thống</p>
+                        <p class="text-xs uppercase tracking-wider text-gray-300">Viện An ninh phi truyền thống (INS) - Trường Quản trị và Kinh doanh, ĐHQGHN</p>
+                    </div>
+                    <div class="lg:col-span-5 space-y-2 text-[11px]">
+                        <p><span class="font-bold text-gray-200">Địa chỉ văn phòng:</span> Nhà B1, số 144 Xuân Thủy, Cầu Giấy, Hà Nội</p>
+                        <p><span class="font-bold text-gray-200">Thao trường chính:</span> Tổ hợp Bavieco, Thôn Muồng Voi, xã Yên Bài, Ba Vì, Hà Nội</p>
+                        <p><span class="font-bold text-gray-200">Điện thoại liên hệ:</span> <span class="text-white font-bold">0859.234.666</span></p>
+                    </div>
+                </div>
+                <div class="pt-4 text-center text-[11px] text-gray-500 flex flex-col sm:flex-row justify-between items-center gap-2">
+                    <p>© 2026 HSB-INS. All rights reserved.</p>
+                    <p>Bản quyền sở hữu thuộc <span class="text-gray-300 font-medium">Nguyen Huy Anh</span> - <a href="mailto:anhnh@hsb.edu.vn" class="hover:text-white transition underline decoration-dotted">anhnh@hsb.edu.vn</a></p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ duration: 800, once: true });</script>
+</body>
+</html>
