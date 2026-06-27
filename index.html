@@ -281,8 +281,13 @@
                 </div>
             </div>
             <div class="flex items-center justify-center sm:justify-end gap-4 w-full sm:w-auto">
-                <div class="flex items-center space-x-2">
-                    <img src="anhwebsite-resize/ins.png" alt="Logo INS" class="h-14 md:h-18 w-auto object-contain">
+                <div class="flex items-center gap-2.5">
+                    <img src="anhwebsite-resize/ins.png" alt="Logo INS" class="h-14 md:h-18 w-auto object-contain flex-shrink-0">
+                    <div class="border-l-2 border-red-700/30 pl-2.5 hidden sm:block">
+                        <p class="text-[11px] font-black text-red-800 uppercase leading-tight tracking-wide">Viện An Ninh Phi Truyền Thống</p>
+                        <p class="text-[10px] font-semibold text-gray-600 leading-tight mt-0.5">Đại Học Quốc Gia Hà Nội</p>
+                        <p class="text-[9px] font-medium text-gray-400 leading-tight mt-0.5 italic tracking-wide">Institute of Nontraditional Security</p>
+                    </div>
                 </div>
                 <div class="bg-amber-50 border border-amber-200 rounded-xl px-3 py-1.5 flex items-center gap-2.5 hotline-pulse">
                     <div class="text-left">
@@ -308,7 +313,7 @@
 
     <!-- ================= BANNER VIDEO KHÓA NỀN ================= -->
     <div class="w-full h-[65vh] md:h-[75vh] sticky top-[40px] z-0 overflow-hidden bg-black" id="video-banner">
-        <div class="absolute inset-0 w-full h-full pointer-events-none scale-[1.02]" id="yt-container">
+        <div class="absolute inset-0 w-full h-full scale-[1.02]" id="yt-container" style="pointer-events:none">
             <img src="https://i.ytimg.com/vi/6GPLVv-edkQ/maxresdefault.jpg"
                  id="yt-thumb"
                  class="w-full h-full object-cover"
@@ -316,6 +321,10 @@
         </div>
         <canvas id="particle-canvas"></canvas>
         <div class="absolute inset-0 bg-black/20 banner-overlay"></div>
+        <!-- Mobile play button — phải nằm sau overlay để không bị chặn -->
+        <button id="yt-play-btn" onclick="window.ytPlayMobile()" style="display:none;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:50;background:rgba(0,0,0,.6);border:3px solid rgba(255,255,255,.9);border-radius:50%;width:72px;height:72px;cursor:pointer;align-items:center;justify-content:center;pointer-events:all !important">
+            <svg viewBox="0 0 24 24" fill="white" width="32" height="32" style="margin-left:4px"><path d="M8 5v14l11-7z"/></svg>
+        </button>
     </div>
 
     <!-- ================= KHỐI NỘI DUNG CHÍNH DI CHUYỂN ĐÈ LÊN VIDEO VÀ LIỀN MẠCH ================= -->
@@ -700,20 +709,31 @@
         (function() {
             const container = document.getElementById('yt-container');
             const thumb = document.getElementById('yt-thumb');
-            function loadVideo() {
+            const playBtn = document.getElementById('yt-play-btn');
+            const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+
+            function loadVideo(userGesture) {
                 if (container.querySelector('iframe')) return;
                 const iframe = document.createElement('iframe');
                 iframe.className = 'w-full h-full object-cover';
-                iframe.src = 'https://www.youtube.com/embed/6GPLVv-edkQ?autoplay=1&mute=1&loop=1&playlist=6GPLVv-edkQ&controls=0&showinfo=0&rel=0&playsinline=1';
+                iframe.src = 'https://www.youtube.com/embed/6GPLVv-edkQ?autoplay=1&mute=1&loop=1&playlist=6GPLVv-edkQ&controls=0&showinfo=0&rel=0&playsinline=1&enablejsapi=1';
                 iframe.frameBorder = '0';
                 iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
                 iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;';
                 container.appendChild(iframe);
+                if (playBtn) playBtn.style.display = 'none';
                 setTimeout(() => { thumb.style.opacity = '0'; thumb.style.transition = 'opacity .5s'; }, 1000);
             }
-            // Load video after page is interactive
-            if (document.readyState === 'complete') { setTimeout(loadVideo, 800); }
-            else { window.addEventListener('load', () => setTimeout(loadVideo, 800)); }
+
+            window.ytPlayMobile = function() { loadVideo(true); };
+
+            if (isMobile) {
+                // Show play button on mobile instead of autoplay
+                if (playBtn) playBtn.style.display = 'flex';
+            } else {
+                if (document.readyState === 'complete') { setTimeout(loadVideo, 800); }
+                else { window.addEventListener('load', () => setTimeout(loadVideo, 800)); }
+            }
         })();
 
         /* ═══ GSAP SETUP (after defer) ═══ */
