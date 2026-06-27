@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tin tức sinh viên - HSB</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --green: #1E4620; --green-dark: #112912; --green-light: #4ade80; --accent: #f59e0b; }
+        html { cursor: none; }
+        body { font-family: 'Inter', sans-serif; background: #F4F9F3; overflow-x: hidden; }
+        /* Inter handles Vietnamese correctly - no Playfair for headings */
+        #cur-dot { position: fixed; width: 8px; height: 8px; background: var(--green-light); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); }
+        #cur-ring { position: fixed; width: 36px; height: 36px; border: 1.5px solid var(--green-light); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); opacity: .6; }
+        #read-prog { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--green-light), var(--accent)); z-index: 9990; width: 0%; }
+        .hotline-pulse { animation: hotline-glow 2s ease-in-out infinite; }
+        @keyframes hotline-glow { 0%,100%{box-shadow:0 0 0 0 rgba(251,191,36,.4);}50%{box-shadow:0 0 0 8px rgba(251,191,36,0);} }
+        .page-wrap { animation: pagein .55s cubic-bezier(0.22,1,0.36,1) both; }
+        @keyframes pagein { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:none; } }
+        .split-word { display: inline-block; vertical-align: bottom; }
+        .split-word span { display: inline-block; }
+        .article-card { background: #fff; border-radius: 24px; box-shadow: 0 2px 8px rgba(0,0,0,.06), 0 24px 64px rgba(30,70,32,.08); }
+        .slider-wrap { border-radius: 16px; overflow: hidden; position: relative; background: #0a1f0a; }
+        .slider-img { width: 100%; height: auto; max-height: 520px; object-fit: contain; display: block; }
+        .slide-dots { display: flex; gap: 6px; justify-content: center; }
+        .slide-dot { width: 8px; height: 8px; border-radius: 50%; background: #cbd5e1; transition: all .3s; cursor: none; }
+        .slide-dot.active { width: 24px; border-radius: 4px; background: var(--green-light); }
+        .quote-pull { position: relative; padding: 20px 24px 20px 28px; background: linear-gradient(135deg, #f0fdf4, #dcfce7); border-left: 4px solid var(--green); border-radius: 0 16px 16px 0; overflow: hidden; }
+        .quote-pull::before { content: '"'; position: absolute; top: -10px; left: 10px; font-family: 'Playfair Display', serif; font-size: 120px; color: rgba(30,70,32,.08); line-height: 1; pointer-events: none; }
+        .drop-cap::first-letter { font-family: 'Playfair Display', serif; font-size: 3.5em; font-weight: 900; color: var(--green); float: left; line-height: .8; margin-right: 6px; margin-top: 4px; }
+        .main-footer::before { content: ''; display: block; height: 1px; background: linear-gradient(90deg, transparent, var(--green-light) 30%, var(--green-light) 70%, transparent); margin-bottom: 16px; opacity: .5; }
+        /* .sr opacity set by GSAP, not CSS */
+        ::selection { background: rgba(74,222,128,.3); }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-thumb { background: var(--green); border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <div id="cur-dot"></div>
+    <div id="cur-ring"></div>
+    <div id="read-prog"></div>
+
+    <div class="bg-white border-b border-gray-200 py-2 px-4 md:px-6 shadow-sm">
+        <div class="max-w-[1300px] mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center space-x-3">
+                <img src="anhwebsite-resize/logoqs.png" alt="Logo HSB" class="h-16 md:h-20 w-auto object-contain">
+                <div>
+                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-wide leading-none">Trường Quản trị và Kinh doanh</p>
+                    <p class="text-xs md:text-sm font-black text-[#1E4620] uppercase tracking-tight mt-1">Đại Học Quốc Gia Hà Nội</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <img src="anhwebsite-resize/ins.png" alt="Logo INS" class="h-14 md:h-18 w-auto object-contain">
+                <div class="bg-amber-50 border border-amber-200 rounded-xl px-3 py-1.5 flex items-center gap-2.5 hotline-pulse">
+                    <div class="text-left">
+                        <span class="text-[9px] font-bold text-amber-700 block uppercase tracking-wider leading-none">Hotline</span>
+                        <a href="tel:0859.234.666" class="text-xs font-black text-amber-900 block mt-0.5" style="cursor:none">0859.234.666</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-[#1E4620] text-white sticky top-0 z-50 shadow-md">
+        <div class="max-w-[1300px] mx-auto px-4">
+            <nav class="flex flex-wrap justify-center sm:justify-start gap-1 py-2 text-xs font-bold uppercase tracking-wider">
+                <a href="index.html#gioi-thieu" class="px-4 py-2 rounded hover:bg-[#143016] transition text-gray-200" style="cursor:none">Giới thiệu</a>
+                <a href="index.html#chuong-trinh" class="px-4 py-2 rounded hover:bg-[#143016] transition text-gray-200" style="cursor:none">Chương trình đào tạo</a>
+                <a href="index.html#trai-he" class="px-4 py-2 rounded hover:bg-[#143016] transition text-gray-200" style="cursor:none">Trại hè & Tài liệu</a>
+                <a href="index.html#tin-tuc" class="px-4 py-2 rounded hover:bg-[#143016] transition text-gray-200" style="cursor:none">Tin tức hoạt động</a>
+            </nav>
+        </div>
+    </div>
+
+    <div class="page-wrap">
+    <div class="max-w-[900px] mx-auto px-4 md:px-6 pt-4 pb-1">
+        <a href="index.html" class="inline-flex items-center gap-1.5 text-[11px] text-gray-400 hover:text-[#1E4620] transition" style="cursor:none">
+            <i class="fa-solid fa-arrow-left text-[10px]"></i> Quay lại trang chủ
+        </a>
+    </div>
+    <main class="max-w-[900px] mx-auto article-card my-4 p-6 md:p-12 space-y-10">
+
+        <div class="space-y-4 border-b-2 border-gray-100 pb-6 sr">
+            <div class="flex items-center gap-2">
+                <span class="text-[10px] font-bold bg-[#1E4620] text-white px-3 py-1 rounded-full uppercase tracking-widest">Tin tức sinh viên</span>
+                <span class="text-[10px] text-gray-400 font-medium">• HSB - ĐHQGHN</span>
+            </div>
+            <h1 id="page-title" class="text-2xl md:text-4xl text-[#1E4620] font-black tracking-tight leading-tight pt-1">
+                Sinh viên HSB "Rèn bản lĩnh — Luyện ý chí" cùng chương trình Trại hè kỹ năng An ninh phi truyền thống tại Ba Vì
+            </h1>
+            <div class="flex flex-wrap gap-x-4 gap-y-2 sr">
+                <span class="inline-flex items-center gap-1.5 text-xs text-gray-500 font-medium"><i class="fa-regular fa-calendar-days text-[#1E4620]"></i> Tháng 6, 2025</span>
+                <span class="inline-flex items-center gap-1.5 text-xs text-gray-500 font-medium"><i class="fa-solid fa-location-dot text-[#1E4620]"></i> Ba Vì, Hà Nội</span>
+                <span class="inline-flex items-center gap-1.5 text-xs text-gray-500 font-medium"><i class="fa-solid fa-building-columns text-[#1E4620]"></i> Viện An ninh phi truyền thống, HSB</span>
+            </div>
+        </div>
+
+        <div class="space-y-3 sr">
+            <div class="slider-wrap shadow-2xl group">
+                <img id="slider-image" src="anhwebsite-resize/hpcd2.webp" alt="Nghệ thuật chiến đấu" class="slider-img">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none"></div>
+                <button onclick="prevSlide()" class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-[#1E4620] text-white w-10 h-10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all backdrop-blur-sm z-10" style="cursor:none"><i class="fa-solid fa-chevron-left"></i></button>
+                <button onclick="nextSlide()" class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-[#1E4620] text-white w-10 h-10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all backdrop-blur-sm z-10" style="cursor:none"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+            <div class="flex justify-between items-center px-1">
+                <span class="text-[11px] text-gray-400 font-medium flex items-center gap-1.5"><i class="fa-solid fa-camera text-[#1E4620]"></i> Ảnh: Viện An ninh phi truyền thống, HSB</span>
+                <div class="slide-dots" id="slide-dots"></div>
+            </div>
+        </div>
+
+        <div class="space-y-6 text-sm md:text-[15px] text-gray-700 leading-[1.9]">
+            <p class="sr drop-cap text-justify">
+                Hòa mình vào không gian thiên nhiên hùng vĩ giữa núi rừng Ba Vì, hơn 100 sinh viên Trường Quản trị và Kinh doanh (HSB), Đại học Quốc gia Hà Nội đã có những ngày trải nghiệm đặc biệt và đáng nhớ trong chương trình <strong class="text-[#1E4620]">Trại hè kỹ năng An ninh phi truyền thống</strong> do Viện An ninh phi truyền thống tổ chức.
+            </p>
+            <div class="quote-pull sr">
+                <p class="text-sm md:text-base font-semibold text-gray-900 italic leading-relaxed">
+                    "Chúng em không chỉ học được kỹ năng mà còn học được cách vượt qua giới hạn của chính mình. Đây là trải nghiệm mà em sẽ nhớ mãi trong suốt cuộc đời sinh viên."
+                </p>
+                <p class="text-xs text-gray-500 mt-2 font-medium not-italic">— Chia sẻ của sinh viên năm thứ 2, Khoa Quản trị Kinh doanh</p>
+            </div>
+            <p class="sr text-justify">
+                Với chủ đề <em class="text-[#1E4620] font-semibold not-italic">"Rèn bản lĩnh — Luyện ý chí"</em>, chương trình được thiết kế bài bản, khoa học với sự kết hợp giữa huấn luyện thể chất, rèn luyện kỹ năng và phát triển tinh thần đồng đội. Dưới sự hướng dẫn trực tiếp của các chuyên gia, giảng viên và kỹ thuật viên giàu kinh nghiệm, các bạn sinh viên được trải nghiệm những bài học thực tế mà không một giảng đường nào có thể mang lại.
+            </p>
+            <p class="sr text-justify">
+                Các hoạt động nổi bật trong chương trình bao gồm: huấn luyện kỹ năng sinh tồn trong rừng, thực hành nghệ thuật chiến đấu tự vệ, vượt chướng ngại vật theo đội nhóm, thực hành sơ cấp cứu dã chiến cùng với các hoạt động giao lưu, sinh hoạt tập thể và đêm lửa trại đầy cảm xúc.
+            </p>
+            <p class="sr text-justify">
+                Điểm nhấn đặc biệt của kỳ trại hè năm nay là sự tham gia hướng dẫn của các chuyên gia đến từ Bộ Công an và Bộ Quốc phòng, mang đến cho sinh viên những góc nhìn chuyên sâu và thực tiễn về công tác đảm bảo an ninh trong bối cảnh các thách thức phi truyền thống ngày càng phức tạp.
+            </p>
+            <p class="sr text-justify">
+                Sau 5 ngày trải nghiệm đầy thử thách và bổ ích, các sinh viên HSB không chỉ rời về với những kỹ năng thực tiễn quý báu mà còn mang theo tinh thần đoàn kết, ý chí kiên cường và niềm tự hào về màu áo của trường Quản trị và Kinh doanh — một trong những cơ sở đào tạo hàng đầu của Đại học Quốc gia Hà Nội.
+            </p>
+            <div class="border-t border-gray-100 pt-6 flex items-start gap-3 sr">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#1E4620] to-[#4ade80] flex items-center justify-center flex-shrink-0">
+                    <i class="fa-solid fa-building-columns text-white text-sm"></i>
+                </div>
+                <div>
+                    <p class="text-xs font-bold text-[#1E4620] uppercase tracking-wider">Viện An ninh phi truyền thống</p>
+                    <p class="text-xs text-gray-500 leading-relaxed mt-0.5">Trường Quản trị và Kinh doanh (HSB), Đại học Quốc gia Hà Nội. Đơn vị tiên phong trong nghiên cứu, đào tạo và tư vấn chính sách về an ninh phi truyền thống.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    </div>
+
+    <footer class="main-footer bg-[#112912] text-gray-400 text-xs py-8 text-center">
+        <p class="font-bold text-[#4ade80] mb-1 tracking-wider uppercase text-sm">Trung tâm Huấn luyện An ninh phi truyền thống - HSB</p>
+        <p>© 2026 Toàn bộ bản quyền nội dung thuộc về Viện An ninh phi truyền thống</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+    const slideData = [{src:'anhwebsite-resize/hpcd2.webp'},{src:'anhwebsite-resize/hpcd6.webp'},{src:'anhwebsite-resize/hpcd10.webp'}];
+    let curIdx = 0, timer;
+    function buildDots() {
+        const c = document.getElementById('slide-dots');
+        slideData.forEach((_,i) => {
+            const d = document.createElement('button');
+            d.className = 'slide-dot' + (i===0?' active':'');
+            d.onclick = () => { goSlide(i); resetTimer(); }; d.style.cursor='none'; c.appendChild(d);
+        });
+    }
+    function updateDots() { document.querySelectorAll('.slide-dot').forEach((d,i) => d.classList.toggle('active', i===curIdx)); }
+    function goSlide(n) {
+        const img = document.getElementById('slider-image');
+        gsap.to(img, {opacity:0, duration:.3, ease:'power2.in', onComplete:() => {
+            curIdx = ((n%slideData.length)+slideData.length)%slideData.length;
+            img.src = slideData[curIdx].src; updateDots();
+            gsap.to(img, {opacity:1, duration:.5, ease:'power2.out'});
+        }});
+    }
+    function nextSlide() { goSlide(curIdx+1); resetTimer(); }
+    function prevSlide() { goSlide(curIdx-1); resetTimer(); }
+    function resetTimer() { clearInterval(timer); timer = setInterval(nextSlide, 5000); }
+
+    if (typeof gsap !== 'undefined') gsap.registerPlugin(ScrollTrigger);
+    window.addEventListener('scroll', () => {
+        const max = document.body.scrollHeight - window.innerHeight;
+        if (max > 0) document.getElementById('read-prog').style.width = (window.scrollY / max * 100) + '%';
+    }, { passive: true });
+
+    const dot=document.getElementById('cur-dot'), ring=document.getElementById('cur-ring');
+    let mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
+    gsap.to({}, {duration:99999, repeat:-1, onUpdate() {
+        rx+=(mx-rx)*.15; ry+=(my-ry)*.15;
+        gsap.set(dot,{x:mx,y:my}); gsap.set(ring,{x:rx,y:ry});
+    }});
+    document.querySelectorAll('a,button').forEach(el => {
+        el.addEventListener('mouseenter', () => gsap.to(ring,{scale:1.5, borderColor:'#f59e0b', duration:.3}));
+        el.addEventListener('mouseleave', () => gsap.to(ring,{scale:1, borderColor:'#4ade80', duration:.3}));
+    });
+
+    gsap.to('.page-wrap', {opacity:1, duration:.01});
+    gsap.from('.bg-white.border-b', {y:-60, opacity:0, duration:.8, ease:'power4.out'});
+    gsap.from('.article-card', {y:80, opacity:0, duration:1.2, ease:'expo.out', delay:.15});
+    const titleEl = document.getElementById('page-title');
+    titleEl.innerHTML = titleEl.textContent.trim().split(' ').map(w => `<span class="split-word"><span>${w}</span></span>`).join(' ');
+    gsap.from('#page-title .split-word span', {y:20, opacity:0, duration:.65, stagger:.03, ease:'expo.out', delay:.4});
+    gsap.utils.toArray('.sr').forEach(el => {
+        gsap.from(el, {scrollTrigger:{trigger:el, start:'top 88%'}, y:40, opacity:0, duration:.8, ease:'power3.out'});
+    });
+    document.addEventListener('DOMContentLoaded', () => { buildDots(); resetTimer(); });
+    </script>
+</body>
+</html>

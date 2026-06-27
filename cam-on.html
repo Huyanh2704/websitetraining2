@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cảm ơn bạn đã đăng ký — HSB Training</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * { font-family: 'Inter', sans-serif; box-sizing: border-box; }
+        body { margin: 0; background: #f8fdf9; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+
+        .card { background: #fff; border-radius: 24px; box-shadow: 0 20px 60px rgba(30,70,32,.12); max-width: 520px; width: 90%; overflow: hidden; }
+
+        .card-top { background: linear-gradient(135deg, #1E4620, #2d5a27); padding: 40px 32px 32px; text-align: center; position: relative; overflow: hidden; }
+        .card-top::before { content: ''; position: absolute; top: -60px; right: -60px; width: 180px; height: 180px; border-radius: 50%; background: rgba(74,222,128,.08); }
+        .card-top::after  { content: ''; position: absolute; bottom: -40px; left: -40px; width: 120px; height: 120px; border-radius: 50%; background: rgba(74,222,128,.06); }
+
+        .check-circle { width: 80px; height: 80px; border-radius: 50%; background: rgba(74,222,128,.2); border: 3px solid #4ade80; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; animation: pop .5s cubic-bezier(.34,1.56,.64,1) both; }
+        @keyframes pop { from{transform:scale(0);opacity:0} to{transform:scale(1);opacity:1} }
+
+        .timer-bar { height: 3px; background: rgba(255,255,255,.15); border-radius: 2px; margin-top: 20px; overflow: hidden; }
+        .timer-fill { height: 100%; background: #4ade80; border-radius: 2px; width: 100%; animation: drain 15s linear forwards; }
+        @keyframes drain { to { width: 0%; } }
+
+        .card-body { padding: 32px; }
+
+        .step { display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid #f1f5f9; }
+        .step:last-child { border-bottom: none; }
+        .step-icon { width: 36px; height: 36px; border-radius: 50%; background: #f0fdf4; border: 1.5px solid #bbf7d0; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+        .zalo-btn { display: flex; align-items: center; justify-content: center; gap-10px; gap: 10px; background: #0068ff; color: white; font-weight: 800; font-size: 15px; padding: 16px 24px; border-radius: 14px; text-decoration: none; transition: all .25s; box-shadow: 0 8px 24px rgba(0,104,255,.3); }
+        .zalo-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(0,104,255,.45); }
+
+        .home-btn { display: block; text-align: center; color: #6b7280; font-size: 13px; font-weight: 600; margin-top: 16px; text-decoration: none; }
+        .home-btn:hover { color: #1E4620; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="card-top">
+            <div class="check-circle">
+                <i class="fa-solid fa-check text-3xl text-green-400"></i>
+            </div>
+            <h1 class="text-white font-black text-2xl leading-tight" id="greeting">Đã nhận thông tin!</h1>
+            <p class="text-green-300 text-sm font-semibold mt-2">Đội ngũ HSB sẽ liên hệ với bạn trong <strong class="text-white">15 phút</strong></p>
+            <div class="timer-bar"><div class="timer-fill" id="timer-fill"></div></div>
+        </div>
+        <div class="card-body">
+            <div class="space-y-0 mb-6">
+                <div class="step">
+                    <div class="step-icon"><i class="fa-solid fa-phone text-[#1E4620] text-sm"></i></div>
+                    <div>
+                        <p class="font-bold text-sm text-gray-900">Bước 1 — Chờ cuộc gọi tư vấn</p>
+                        <p class="text-xs text-gray-400 mt-0.5 leading-relaxed">Chuyên gia HSB sẽ gọi đến số bạn đã để lại để tư vấn chương trình phù hợp nhất cho con.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-icon"><i class="fa-brands fa-facebook-messenger text-[#1E4620] text-sm"></i></div>
+                    <div>
+                        <p class="font-bold text-sm text-gray-900">Bước 2 — Tham gia nhóm Zalo phụ huynh</p>
+                        <p class="text-xs text-gray-400 mt-0.5 leading-relaxed">Nhận lịch trình chi tiết, ảnh thực tế và giải đáp mọi thắc mắc từ đội ngũ HSB.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-icon"><i class="fa-solid fa-lock text-[#1E4620] text-sm"></i></div>
+                    <div>
+                        <p class="font-bold text-sm text-gray-900">Bước 3 — Xác nhận & đặt cọc giữ chỗ</p>
+                        <p class="text-xs text-gray-400 mt-0.5 leading-relaxed">Đặt cọc 30% để chốt suất ưu đãi. Hoàn 100% nếu hủy trước 7 ngày khai trại.</p>
+                    </div>
+                </div>
+            </div>
+
+            <a href="https://zalo.me/g/hsb-training" class="zalo-btn" target="_blank" rel="noopener">
+                <svg width="22" height="22" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" rx="10" fill="white"/><text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-size="22" font-weight="900" fill="#0068ff">Z</text></svg>
+                Tham gia nhóm Zalo ngay →
+            </a>
+            <a href="index.html" class="home-btn">← Quay lại trang chủ</a>
+        </div>
+    </div>
+
+    <script>
+        // Greet by name if available
+        const params = new URLSearchParams(location.search);
+        const name = params.get('name') ? decodeURIComponent(params.get('name')) : null;
+        if (name) {
+            document.getElementById('greeting').textContent = 'Cảm ơn ' + name + '!';
+        }
+    </script>
+</body>
+</html>
